@@ -8,5 +8,5 @@ data class RiderData(
     val riderId: String,
     val name: String,
     val phone: String,
-    val routeId: String
+    val route: RouteData
 ) : Parcelable
