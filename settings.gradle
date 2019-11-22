@@ -1,0 +1,7 @@
+include ':common'
+include ':network'
+include ':ui'
+include ':navigation_driver'
+include ':navigation_rider'
+include ':app_driver'
+include ':app_rider'
