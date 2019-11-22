@@ -17,7 +17,7 @@ class DrivingRouteViewModel(
 
     val loadingData = MutableLiveData<Boolean>()
 
-    fun requestData(route: RouteData) {
+    fun requestData(route: RouteData?) {
         viewModelScope.launch(schedulerSet.ioCoroutineContext) {
             delay(3000)
             stateData.postValue(NormalDrivingRouteState(

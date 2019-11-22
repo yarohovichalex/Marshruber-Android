@@ -8,6 +8,6 @@ data class DriverData(
     val driverId: String,
     val name: String,
     val phone: String,
-    val route: RouteData,
-    val carNumber: String
+    val carNumber: String,
+    val route: RouteData?
 ) : Parcelable
