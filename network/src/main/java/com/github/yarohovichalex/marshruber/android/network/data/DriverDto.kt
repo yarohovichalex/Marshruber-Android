@@ -7,5 +7,6 @@ import com.squareup.moshi.JsonClass
 data class DriverDto(
     @Json(name = "driver_id") val driverId: String,
     @Json(name = "name") val name: String,
-    @Json(name = "phone") val phone: String
+    @Json(name = "phone") val phone: String,
+    @Json(name = "route_id") val routeId: String
 )
