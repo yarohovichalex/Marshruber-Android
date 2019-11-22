@@ -5,6 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class RouteData(
-        val routeId: String,
-        val name: String
+    val routeId: String,
+    val name: String
 ) : Parcelable

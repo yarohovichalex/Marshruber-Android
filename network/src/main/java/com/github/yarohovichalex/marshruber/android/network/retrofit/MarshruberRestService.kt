@@ -1,13 +1,11 @@
 package com.github.yarohovichalex.marshruber.android.network.retrofit
 
-import android.accounts.NetworkErrorException
 import com.github.yarohovichalex.marshruber.android.network.NetworkConstants
 import com.github.yarohovichalex.marshruber.android.network.data.DriverDto
 import com.github.yarohovichalex.marshruber.android.network.data.RiderDto
 import com.github.yarohovichalex.marshruber.android.network.data.RouteDto
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.PUT
 
 interface MarshruberRestService {
 
@@ -34,7 +32,4 @@ interface MarshruberRestService {
 
     @POST(NetworkConstants.FINISH_ROUTE_FOR_RIDER)
     suspend fun finishRouteForRider(riderId: String): RiderDto
-
-
-
 }

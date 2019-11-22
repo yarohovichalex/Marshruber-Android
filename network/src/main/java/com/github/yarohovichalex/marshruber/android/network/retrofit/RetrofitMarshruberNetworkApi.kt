@@ -8,7 +8,7 @@ import com.github.yarohovichalex.marshruber.android.network.data.DriverDto
 import com.github.yarohovichalex.marshruber.android.network.data.RiderDto
 
 class RetrofitMarshruberNetworkApi(
-        private val marshruberRestService: MarshruberRestService
+    private val marshruberRestService: MarshruberRestService
 ) : MarshruberNetworkApi {
 
     override suspend fun getDriversByRoute(route: String): List<DriverData> =
@@ -55,7 +55,7 @@ class RetrofitMarshruberNetworkApi(
                 DriverData(driverDto.driverId, driverDto.name, driver.phone, driverDto.routeId)
             }
 
-    override suspend fun startRouteForRider(rider: RiderData): RiderData{
+    override suspend fun startRouteForRider(rider: RiderData): RiderData {
         var riderDto = RiderDto(rider.riderId, rider.name, rider.phone, rider.phone)
         riderDto = marshruberRestService.startRouteForRider(riderDto)
         return RiderData(riderDto.riderId, riderDto.name, riderDto.phone, riderDto.routeId)
