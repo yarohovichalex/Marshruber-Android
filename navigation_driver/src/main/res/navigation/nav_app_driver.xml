@@ -7,6 +7,27 @@
     <fragment
         android:id="@+id/nav_fragment_driver_start_route"
         android:name="com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteFragment"
-        tools:layout="@layout/fragment_driver_start_route" />
+        tools:layout="@layout/fragment_driver_start_route">
+
+        <action
+            android:id="@+id/action_driver_start_to_driving_route"
+            app:destination="@id/nav_fragment_driving_route" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_driving_route"
+        android:name="com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteFragment"
+        tools:layout="@layout/fragment_driver_start_route">
+        <argument
+            android:name="driver"
+            app:argType="com.github.yarohovichalex.marshruber.android.common.data.DriverData" />
+        <argument
+            android:name="route"
+            app:argType="com.github.yarohovichalex.marshruber.android.common.data.RouteData" />
+        <action
+            android:id="@+id/action_driver_driving_to_start_route"
+            app:destination="@id/nav_fragment_driver_start_route" />
+    </fragment>
 
 </navigation>
