@@ -3,6 +3,7 @@ package com.github.yarohovichalex.marshruber.android.ui.driver.start
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.github.yarohovichalex.marshruber.android.common.SchedulerSet
+import com.github.yarohovichalex.marshruber.android.common.data.RouteData
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -12,16 +13,27 @@ class DriverStartRouteViewModel(
 ) : BaseViewModel() {
 
     val stateData = MutableLiveData<DriverStartRouteState>()
-            .apply {
-                postValue(NormalDriverStartRouteState(emptyList()))
-            }
 
     val loadingData = MutableLiveData<Boolean>()
 
     fun requestData() {
         viewModelScope.launch(schedulerSet.ioCoroutineContext) {
             delay(3000)
-            stateData.postValue(ErrorDriverStartRouteState(Error("Test error")))
+            stateData.postValue(NormalDriverStartRouteState(
+                    routeList = listOf(
+                            RouteData(
+                                    routeId = "routeId1",
+                                    name = "name1"
+                            ),
+                            RouteData(
+                                    routeId = "routeId2",
+                                    name = "name2"
+                            )
+                    ),
+                    driverName = "driverName",
+                    driverPhone = "driverPhone",
+                    driverCarNumber = "driverCarNumber"
+            ))
             loadingData.postValue(false)
         }
     }
