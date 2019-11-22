@@ -4,7 +4,7 @@
     package="com.github.yarohovichalex.marshruber.android.rider">
 
     <application
-        android:name="com.github.yarohovichalex.marshruber.android.rider.RiderAppApplication"
+        android:name="com.github.yarohovichalex.marshruber.android.rider.RiderApplication"
         android:allowBackup="false"
         android:icon="@drawable/ic_android"
         android:label="@string/app_name_rider"
@@ -13,7 +13,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="com.github.yarohovichalex.marshruber.android.rider.RiderAppActivity"
+            android:name="com.github.yarohovichalex.marshruber.android.rider.RiderActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>

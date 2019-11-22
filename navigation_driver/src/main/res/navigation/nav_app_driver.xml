@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/nav_fragment">
+    app:startDestination="@+id/nav_fragment_driver_start_route">
 
     <fragment
-        android:id="@+id/nav_fragment"
-        android:name="androidx.fragment.app.Fragment"
-        tools:layout="@layout/support_simple_spinner_dropdown_item" />
+        android:id="@+id/nav_fragment_driver_start_route"
+        android:name="com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteFragment"
+        tools:layout="@layout/fragment_driver_start_route" />
 
 </navigation>

@@ -3,9 +3,9 @@ package com.github.yarohovichalex.marshruber.android.rider
 import android.app.Application
 import timber.log.Timber
 
-class RiderAppApplication : Application() {
+class RiderApplication : Application() {
 
-    val riderAppModules: RiderAppModules by lazy { RiderAppModules(this) }
+    val riderModules: RiderModules by lazy { RiderModules(this) }
 
     override fun onCreate() {
         super.onCreate()

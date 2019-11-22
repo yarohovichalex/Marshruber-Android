@@ -41,6 +41,7 @@ dependencies {
     implementation project(':common')
 
     implementation appDependencies.kotlinStdlib
+    implementation appDependencies.kotlinReflect
     implementation appDependencies.kotlinxCoroutinesCore
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

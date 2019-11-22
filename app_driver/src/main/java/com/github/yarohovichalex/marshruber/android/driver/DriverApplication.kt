@@ -3,9 +3,9 @@ package com.github.yarohovichalex.marshruber.android.driver
 import android.app.Application
 import timber.log.Timber
 
-class DriverAppApplication : Application() {
+class DriverApplication : Application() {
 
-    val driverAppModules: DriverAppModules by lazy { DriverAppModules(this) }
+    val driverModules: DriverModules by lazy { DriverModules(this) }
 
     override fun onCreate() {
         super.onCreate()

@@ -4,7 +4,7 @@
     package="com.github.yarohovichalex.marshruber.android.driver">
 
     <application
-        android:name="com.github.yarohovichalex.marshruber.android.driver.DriverAppApplication"
+        android:name="com.github.yarohovichalex.marshruber.android.driver.DriverApplication"
         android:allowBackup="false"
         android:icon="@drawable/ic_android"
         android:label="@string/app_name_driver"
@@ -13,7 +13,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="com.github.yarohovichalex.marshruber.android.driver.DriverAppActivity"
+            android:name="com.github.yarohovichalex.marshruber.android.driver.DriverActivity"
             android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>
