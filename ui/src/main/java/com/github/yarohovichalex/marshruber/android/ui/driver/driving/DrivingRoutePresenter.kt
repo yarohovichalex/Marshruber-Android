@@ -6,4 +6,5 @@ interface DrivingRoutePresenter {
     fun getStateData(): LiveData<DrivingRouteState>
     fun getLoadingData(): LiveData<Boolean>
     fun requestData()
+    fun finishRoute()
 }

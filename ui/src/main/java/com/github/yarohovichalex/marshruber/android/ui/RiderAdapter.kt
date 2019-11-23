@@ -9,29 +9,32 @@ import com.github.yarohovichalex.marshruber.android.ui.common.adapter.BindingVie
 import com.github.yarohovichalex.marshruber.android.ui.databinding.ViewItemRiderBinding
 
 class RiderAdapter : BaseRecyclerClickableListAdapter<RiderData, ViewItemRiderBinding>(
-        DIFF_CALLBACK
+    DIFF_CALLBACK
 ) {
-    override fun onCreateViewHolder(inflater: LayoutInflater, parent: ViewGroup, viewType: Int): BindingViewHolder<ViewItemRiderBinding> =
-            BindingViewHolder(ViewItemRiderBinding.inflate(inflater, parent, false))
+    override fun onCreateViewHolder(
+        inflater: LayoutInflater,
+        parent: ViewGroup,
+        viewType: Int
+    ): BindingViewHolder<ViewItemRiderBinding> =
+        BindingViewHolder(ViewItemRiderBinding.inflate(inflater, parent, false))
 
     override fun onBindViewHolder(
-            holder: BindingViewHolder<ViewItemRiderBinding>,
-            position: Int
+        holder: BindingViewHolder<ViewItemRiderBinding>,
+        position: Int
     ) {
-        getItem(position)?.let { item: RiderData ->
-            holder.binding.name.text = item.name
-            holder.binding.phone.text = item.phone
-        }
+        val item: RiderData = getItem(position)
+        holder.binding.name.text = item.name
+        holder.binding.phone.text = item.phone
     }
 
     companion object {
 
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<RiderData>() {
             override fun areItemsTheSame(oldItem: RiderData, newItem: RiderData) =
-                    oldItem.riderId == newItem.riderId
+                oldItem.riderId == newItem.riderId
 
             override fun areContentsTheSame(oldItem: RiderData, newItem: RiderData) =
-                    oldItem == newItem
+                oldItem == newItem
         }
     }
 }

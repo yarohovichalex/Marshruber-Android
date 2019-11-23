@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.github.yarohovichalex.marshruber.android.common.data.RouteData
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseFragment
 import com.github.yarohovichalex.marshruber.android.ui.databinding.FragmentDriverStartRouteBinding
 import com.github.yarohovichalex.marshruber.android.ui.databinding.LayoutDriverStartRouteNormalBinding
@@ -26,26 +27,37 @@ class DriverStartRouteFragment(
         savedInstanceState: Bundle?
     ): View? {
         FragmentDriverStartRouteBinding.inflate(
-                inflater,
-                container,
-                false
+            inflater,
+            container,
+            false
         ).also {
             fragmentBinding = it
             fragmentBinding.pullToRefresh.setOnRefreshListener { presenter.requestData() }
         }
 
         LayoutDriverStartRouteNormalBinding.inflate(
-                inflater,
-                container,
-                false
+            inflater,
+            container,
+            false
         ).also {
             normalStateBinding = it
+            normalStateBinding.startButton.setOnClickListener {
+                presenter.driverStartRoute(
+                    route = RouteData(
+                        routeId = "routeId",
+                        name = "name"
+                    ),
+                    driverName = normalStateBinding.editText.toString(),
+                    driverPhone = "driverPhone",
+                    driverCarNumber = "driverCarNumber"
+                )
+            }
         }
 
         LayoutGenericErrorBinding.inflate(
-                inflater,
-                container,
-                false
+            inflater,
+            container,
+            false
         ).also {
             errorStateBinding = it
         }
@@ -64,8 +76,8 @@ class DriverStartRouteFragment(
         super.observeDataSources()
 
         presenter.getLoadingData().observe(
-                viewLifecycleOwner,
-                Observer { fragmentBinding.pullToRefresh.isRefreshing = it }
+            viewLifecycleOwner,
+            Observer { fragmentBinding.pullToRefresh.isRefreshing = it }
         )
 
         presenter.getStateData().observe(viewLifecycleOwner, Observer { changeState(it) })

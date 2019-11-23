@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/nav_fragment_driving_route">
+    app:startDestination="@+id/nav_fragment_driver_start_route">
 
     <fragment
         android:id="@+id/nav_fragment_driver_start_route"
@@ -11,7 +11,8 @@
 
         <action
             android:id="@+id/action_driver_start_to_driving_route"
-            app:destination="@id/nav_fragment_driving_route" />
+            app:destination="@id/nav_fragment_driving_route"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
@@ -19,12 +20,12 @@
         android:name="com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteFragment"
         tools:layout="@layout/fragment_driver_start_route">
         <argument
-            app:nullable="true"
             android:name="driver"
             app:argType="com.github.yarohovichalex.marshruber.android.common.data.DriverData" />
         <action
             android:id="@+id/action_driver_driving_to_start_route"
-            app:destination="@id/nav_fragment_driver_start_route" />
+            app:destination="@id/nav_fragment_driver_start_route"
+            app:launchSingleTop="true" />
     </fragment>
 
 </navigation>
