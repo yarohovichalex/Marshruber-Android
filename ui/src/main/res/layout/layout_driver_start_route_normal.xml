@@ -41,7 +41,7 @@
         android:textSize="9pt"
         android:inputType="phone"
         android:digits="1234567890"
-        android:text="Номер телефона"
+        android:hint="Номер телефона"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,13 +49,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/nameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Ваше Имя"
+        android:hint="Ваше Имя"
         android:textSize="9pt"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/editText"
