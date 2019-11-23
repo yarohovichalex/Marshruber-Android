@@ -20,8 +20,8 @@ class RetrofitMarshruberNetworkApi(
                     name = dto.name,
                     phone = dto.phone,
                     route = RouteData(
-                        dto.route.routeId,
-                        dto.route.name
+                        dto.route?.routeId.orEmpty(),
+                        dto.route?.name.orEmpty()
                     ),
                     carNumber = dto.carNumber
                 )

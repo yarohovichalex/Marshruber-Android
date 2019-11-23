@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.github.yarohovichalex.marshruber.android.common.MarshruberNetworkApi
 import com.github.yarohovichalex.marshruber.android.common.SchedulerSet
+import com.github.yarohovichalex.marshruber.android.common.data.DriverData
 import com.github.yarohovichalex.marshruber.android.common.data.RouteData
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseViewModel
 import kotlinx.coroutines.launch
@@ -35,11 +36,37 @@ class DriverStartRouteViewModel(
                     )
                 )
             } catch (t: Throwable) {
-                stateData.postValue(
-                    ErrorDriverStartRouteState(t)
-                )
+                stateData.postValue(ErrorDriverStartRouteState(t))
             }
             loadingData.postValue(false)
+        }
+    }
+
+    fun driverStartRoute(
+        route: RouteData,
+        driverName: String,
+        driverPhone: String,
+        driverCarNumber: String,
+        resultCallback: (DriverData) -> Unit
+    ) {
+        viewModelScope.launch(schedulerSet.ioCoroutineContext) {
+            try {
+                val driverData: DriverData = marshruberNetworkApi.updateDriver(
+                    DriverData(
+                        driverId = null,
+                        name = driverName,
+                        phone = driverPhone,
+                        carNumber = driverCarNumber,
+                        route = route
+                    )
+                )
+
+                viewModelScope.launch(schedulerSet.uiCoroutineContext) {
+                    resultCallback(driverData)
+                }
+            } catch (t: Throwable) {
+                stateData.postValue(ErrorDriverStartRouteState(t))
+            }
         }
     }
 }

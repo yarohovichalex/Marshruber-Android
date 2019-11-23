@@ -49,7 +49,7 @@ class DriverStartRouteFragment(
                     ),
                     driverName = normalStateBinding.nameEditText.toString(),
                     driverPhone = normalStateBinding.phoneNumberEditText.toString(),
-                    driverCarNumber = normalStateBinding.phoneNumberEditText.toString()
+                    driverCarNumber = normalStateBinding.carNumberEditText.toString()
                 )
             }
         }

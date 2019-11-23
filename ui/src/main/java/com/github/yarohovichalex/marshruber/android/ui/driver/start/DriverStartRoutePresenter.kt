@@ -9,8 +9,8 @@ interface DriverStartRoutePresenter {
     fun requestData()
     fun driverStartRoute(
         route: RouteData,
-        driverName: String?,
-        driverPhone: String?,
-        driverCarNumber: String?
+        driverName: String,
+        driverPhone: String,
+        driverCarNumber: String
     )
 }
