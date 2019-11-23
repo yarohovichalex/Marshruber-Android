@@ -11,6 +11,9 @@ import com.github.yarohovichalex.marshruber.android.navigation.driver.JetpackDri
 import com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteFragment
 import com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRoutePresenterImpl
 import com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteViewModel
+import com.github.yarohovichalex.marshruber.android.ui.driver.route.DriverRouteFragment
+import com.github.yarohovichalex.marshruber.android.ui.driver.route.DriverRoutePresenterImpl
+import com.github.yarohovichalex.marshruber.android.ui.driver.route.DriverRouteViewModel
 import com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteFragment
 import com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRoutePresenterImpl
 import com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteViewModel
@@ -37,6 +40,20 @@ class DriverFragmentFactory(
                 DriverStartRouteFragment {
                     DriverStartRoutePresenterImpl(
                         driverStartRouteViewModel = viewModel,
+                        driverAppNavigation = driverAppNavigation
+                    )
+                }
+            }
+
+            DriverRouteFragment::class.java.name -> {
+                val viewModel = ViewModelProvider(activity, driverModules.viewModelFactory)
+                    .get(DriverRouteViewModel::class.java)
+                DriverRouteFragment { args: Bundle? ->
+                    val driverData: DriverData? =
+                        driverModules.driverAppNavigationArgs.getDrivingRouteFragmentArgs(args)
+                    DriverRoutePresenterImpl(
+                        driverData = driverData,
+                        driverRouteViewModel = viewModel,
                         driverAppNavigation = driverAppNavigation
                     )
                 }

@@ -44,8 +44,8 @@ class DriverStartRouteFragment(
             normalStateBinding.startButton.setOnClickListener {
                 presenter.driverStartRoute(
                     driverName = normalStateBinding.nameInputEditText.text.toString(),
-                    driverPhone = normalStateBinding.phoneNumberInputEditText.toString(),
-                    driverCarNumber = normalStateBinding.carNumberInputEditText.toString()
+                    driverPhone = normalStateBinding.phoneNumberInputEditText.text.toString(),
+                    driverCarNumber = normalStateBinding.carNumberInputEditText.text.toString()
                 )
             }
         }

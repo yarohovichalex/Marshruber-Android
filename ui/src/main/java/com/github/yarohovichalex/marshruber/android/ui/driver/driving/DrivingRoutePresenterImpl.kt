@@ -19,6 +19,6 @@ class DrivingRoutePresenterImpl(
         drivingRouteViewModel.requestData(driverData?.route)
 
     override fun finishRoute() {
-        driverAppNavigation.navigateToDriverStartRoute()
+        driverAppNavigation.navigateToDriver()
     }
 }

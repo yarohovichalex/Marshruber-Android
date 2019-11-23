@@ -70,11 +70,12 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
 
     implementation "com.jakewharton.timber:timber:$timberVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
 
     implementation "androidx.work:work-runtime-ktx:$workManagerVersion"
 
     //Development
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    // debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
 
     //unit test
     testImplementation appDependencies.kotlinTest

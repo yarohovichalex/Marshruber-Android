@@ -39,25 +39,14 @@ class DriverRouteViewModel(
     }
 
     fun driverStartRoute(
-        driverName: String,
-        driverPhone: String,
-        driverCarNumber: String,
+        driverData: DriverData,
         resultCallback: (DriverData) -> Unit
     ) {
         viewModelScope.launch(schedulerSet.ioCoroutineContext) {
             try {
-                val driverData: DriverData = marshruberNetworkApi.updateDriver(
-                    DriverData(
-                        driverId = null,
-                        name = driverName,
-                        phone = driverPhone,
-                        carNumber = driverCarNumber,
-                        route = null
-                    )
-                )
-
+                val responseDriverData: DriverData = marshruberNetworkApi.updateDriver(driverData)
                 viewModelScope.launch(schedulerSet.uiCoroutineContext) {
-                    resultCallback(driverData)
+                    resultCallback(responseDriverData)
                 }
             } catch (t: Throwable) {
                 stateData.postValue(ErrorDriverRouteState(t))

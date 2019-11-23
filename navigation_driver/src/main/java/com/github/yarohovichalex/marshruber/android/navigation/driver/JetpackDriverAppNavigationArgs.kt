@@ -9,7 +9,7 @@ import com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartR
 class JetpackDriverAppNavigationArgs : DriverAppNavigationArgs {
 
     override fun createDrivingRouteFragmentArgs(driverData: DriverData): Bundle =
-        DriverStartRouteFragmentDirections.actionDriverStartToDrivingRoute(driver = driverData).arguments
+        DriverStartRouteFragmentDirections.actionDriverToRouteList(driver = driverData).arguments
 
     override fun getDrivingRouteFragmentArgs(args: Bundle?): DriverData? =
         args?.let { DrivingRouteFragmentArgs.fromBundle(it).driver }

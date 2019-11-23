@@ -6,6 +6,7 @@ import androidx.navigation.Navigation
 import com.github.yarohovichalex.marshruber.android.common.data.DriverData
 import com.github.yarohovichalex.marshruber.android.common.navigations.DriverAppNavigation
 import com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteFragmentDirections
+import com.github.yarohovichalex.marshruber.android.ui.driver.route.DriverRouteFragmentDirections
 import com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteFragmentDirections
 
 class JetpackDriverAppNavigation(
@@ -19,17 +20,18 @@ class JetpackDriverAppNavigation(
     override fun goBack(): Boolean =
         navController.popBackStack()
 
-    override fun navigateToDrivingRoute(driver: DriverData) =
+    override fun navigateToRouteList(driver: DriverData) =
         navController.navigate(
-            DriverStartRouteFragmentDirections.actionDriverStartToDrivingRoute(driver)
+            DriverStartRouteFragmentDirections.actionDriverToRouteList(driver)
         )
 
-    override fun navigateToDriverRoute(driver: DriverData) {
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun navigateToDriverStartRoute() =
+    override fun navigateToRiderList(driver: DriverData) =
         navController.navigate(
-            DrivingRouteFragmentDirections.actionDriverDrivingToStartRoute()
+            DriverRouteFragmentDirections.actionRouteListToRiderList(driver)
+        )
+
+    override fun navigateToDriver() =
+        navController.navigate(
+            DrivingRouteFragmentDirections.actionRiderListToDriver()
         )
 }

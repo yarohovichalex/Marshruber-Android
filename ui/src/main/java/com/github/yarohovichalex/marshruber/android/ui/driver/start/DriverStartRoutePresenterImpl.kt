@@ -27,7 +27,7 @@ class DriverStartRoutePresenterImpl(
             driverPhone = driverPhone,
             driverCarNumber = driverCarNumber
         ) { driver ->
-            driverAppNavigation.navigateToDriverRoute(driver)
+            driverAppNavigation.navigateToRouteList(driver)
         }
     }
 }

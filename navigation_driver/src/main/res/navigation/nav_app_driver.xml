@@ -2,30 +2,40 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/nav_fragment_driver_start_route">
+    app:startDestination="@+id/nav_fragment_driver">
 
     <fragment
-        android:id="@+id/nav_fragment_driver_start_route"
+        android:id="@+id/nav_fragment_driver"
         android:name="com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteFragment"
         tools:layout="@layout/fragment_driver_start_route">
 
         <action
-            android:id="@+id/action_driver_start_to_driving_route"
-            app:destination="@id/nav_fragment_driving_route"
-            app:launchSingleTop="true" />
+            android:id="@+id/action_driver_to_route_list"
+            app:destination="@id/nav_fragment_route_list" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_fragment_driving_route"
+        android:id="@+id/nav_fragment_route_list"
+        android:name="com.github.yarohovichalex.marshruber.android.ui.driver.route.DriverRouteFragment"
+        tools:layout="@layout/fragment_driver_start_route">
+        <argument
+            android:name="driver"
+            app:argType="com.github.yarohovichalex.marshruber.android.common.data.DriverData" />
+        <action
+            android:id="@+id/action_route_list_to_rider_list"
+            app:destination="@id/nav_fragment_rider_list" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_rider_list"
         android:name="com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteFragment"
         tools:layout="@layout/fragment_driver_start_route">
         <argument
             android:name="driver"
             app:argType="com.github.yarohovichalex.marshruber.android.common.data.DriverData" />
         <action
-            android:id="@+id/action_driver_driving_to_start_route"
-            app:destination="@id/nav_fragment_driver_start_route"
-            app:launchSingleTop="true" />
+            android:id="@+id/action_rider_list_to_driver"
+            app:destination="@id/nav_fragment_driver" />
     </fragment>
 
 </navigation>

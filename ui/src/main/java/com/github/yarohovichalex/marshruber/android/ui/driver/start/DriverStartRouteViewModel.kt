@@ -27,12 +27,17 @@ class DriverStartRouteViewModel(
                     emptyList()
                 }
 
+                val driver = marshruberNetworkApi.getDriversByRoute(
+                    routeList.firstOrNull()?.routeId
+                )
+                    .firstOrNull()
+
                 stateData.postValue(
                     NormalDriverStartRouteState(
                         routeList = routeList,
-                        driverName = "driverName",
-                        driverPhone = "driverPhone",
-                        driverCarNumber = "driverCarNumber"
+                        driverName = driver?.name,
+                        driverPhone = driver?.phone,
+                        driverCarNumber = driver?.carNumber
                     )
                 )
             } catch (t: Throwable) {

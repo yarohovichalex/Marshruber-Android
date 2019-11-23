@@ -12,8 +12,8 @@ class RetrofitMarshruberNetworkApi(
     private val marshruberRestService: MarshruberRestService
 ) : MarshruberNetworkApi {
 
-    override suspend fun getDriversByRoute(routeId: String): List<DriverData> =
-        marshruberRestService.getDriversByRoute(routeId)
+    override suspend fun getDriversByRoute(routeId: String?): List<DriverData> =
+        marshruberRestService.getDriversByRoute(routeId.orEmpty())
             .map { dto ->
                 DriverData(
                     driverId = dto.driverId,
@@ -36,8 +36,8 @@ class RetrofitMarshruberNetworkApi(
                 )
             }
 
-    override suspend fun getRidersByRoute(routeId: String): List<RiderData> =
-        marshruberRestService.getRidersByRoute(routeId)
+    override suspend fun getRidersByRoute(routeId: String?): List<RiderData> =
+        marshruberRestService.getRidersByRoute(routeId.orEmpty())
             .map { dto ->
                 RiderData(
                     riderId = dto.riderId,

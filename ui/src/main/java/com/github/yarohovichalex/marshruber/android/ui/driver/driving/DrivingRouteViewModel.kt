@@ -2,14 +2,15 @@ package com.github.yarohovichalex.marshruber.android.ui.driver.driving
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.github.yarohovichalex.marshruber.android.common.MarshruberNetworkApi
 import com.github.yarohovichalex.marshruber.android.common.SchedulerSet
-import com.github.yarohovichalex.marshruber.android.common.data.RiderData
 import com.github.yarohovichalex.marshruber.android.common.data.RouteData
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseViewModel
 import kotlinx.coroutines.launch
 
 class DrivingRouteViewModel(
-    private val schedulerSet: SchedulerSet
+    private val schedulerSet: SchedulerSet,
+    private val marshruberNetworkApi: MarshruberNetworkApi
 ) : BaseViewModel() {
 
     val stateData = MutableLiveData<DrivingRouteState>()
@@ -18,24 +19,14 @@ class DrivingRouteViewModel(
 
     fun requestData(route: RouteData?) {
         viewModelScope.launch(schedulerSet.ioCoroutineContext) {
-            stateData.postValue(
-                NormalDrivingRouteState(
-                    riderList = listOf(
-                        RiderData(
-                            riderId = "routeId1",
-                            name = "name1",
-                            phone = "phone1",
-                            route = route
-                        ),
-                        RiderData(
-                            riderId = "routeId2",
-                            name = "name2",
-                            phone = "phone2",
-                            route = route
-                        )
-                    )
+            try {
+                val riderList = marshruberNetworkApi.getRidersByRoute(route?.routeId)
+                stateData.postValue(
+                    NormalDrivingRouteState(riderList = riderList)
                 )
-            )
+            } catch (t: Throwable) {
+                stateData.postValue(ErrorDrivingRouteState(t))
+            }
             loadingData.postValue(false)
         }
     }

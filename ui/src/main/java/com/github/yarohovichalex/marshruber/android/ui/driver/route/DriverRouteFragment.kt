@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.github.yarohovichalex.marshruber.android.ui.R
 import com.github.yarohovichalex.marshruber.android.ui.RouteAdapter
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseFragment
 import com.github.yarohovichalex.marshruber.android.ui.databinding.FragmentDriverRouteBinding
@@ -44,9 +45,6 @@ class DriverRouteFragment(
         ).also {
             normalStateBinding = it
             normalStateBinding.recyclerView.adapter = routeAdapter
-            normalStateBinding.startButton.setOnClickListener {
-                presenter.driverStartRoute()
-            }
         }
 
         LayoutGenericErrorBinding.inflate(
@@ -62,7 +60,12 @@ class DriverRouteFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = javaClass.simpleName
+        (requireActivity() as? AppCompatActivity)?.supportActionBar?.title =
+            getString(R.string.header_route_list)
+
+        routeAdapter.onItemClickListener = { _, _, position ->
+            presenter.driverStartRoute(routeAdapter.getItem(position))
+        }
 
         presenter.requestData()
     }

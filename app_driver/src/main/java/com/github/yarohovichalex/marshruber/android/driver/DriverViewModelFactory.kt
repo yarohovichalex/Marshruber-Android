@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.github.yarohovichalex.marshruber.android.common.MarshruberNetworkApi
 import com.github.yarohovichalex.marshruber.android.common.SchedulerSet
 import com.github.yarohovichalex.marshruber.android.ui.driver.driving.DrivingRouteViewModel
+import com.github.yarohovichalex.marshruber.android.ui.driver.route.DriverRouteViewModel
 import com.github.yarohovichalex.marshruber.android.ui.driver.start.DriverStartRouteViewModel
 import timber.log.Timber
 
@@ -23,8 +24,14 @@ class DriverViewModelFactory(
                 marshruberNetworkApi = marshruberNetworkApi
             ) as T
 
+            DriverRouteViewModel::class.java.isAssignableFrom(modelClass) -> DriverRouteViewModel(
+                schedulerSet = schedulerSet,
+                marshruberNetworkApi = marshruberNetworkApi
+            ) as T
+
             DrivingRouteViewModel::class.java.isAssignableFrom(modelClass) -> DrivingRouteViewModel(
-                schedulerSet = schedulerSet
+                schedulerSet = schedulerSet,
+                marshruberNetworkApi = marshruberNetworkApi
             ) as T
 
             else -> modelClass.getConstructor().newInstance()
