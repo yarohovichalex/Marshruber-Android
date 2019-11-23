@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.github.yarohovichalex.marshruber.android.rider">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:name="com.github.yarohovichalex.marshruber.android.rider.RiderApplication"
         android:allowBackup="false"
@@ -11,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
 
         <activity
             android:name="com.github.yarohovichalex.marshruber.android.rider.RiderActivity"
