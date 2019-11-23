@@ -2,7 +2,7 @@ package com.github.yarohovichalex.marshruber.android.network
 
 object NetworkConstants {
 
-    const val API_PATH = "api/v1"
+    const val API_PATH = "http://localhost:8080/rider/"
     const val DRIVER_PATH = "$API_PATH/driver/"
     const val GET_RIDER_BY_PHONE = ""
     const val GET_ROUTES = ""

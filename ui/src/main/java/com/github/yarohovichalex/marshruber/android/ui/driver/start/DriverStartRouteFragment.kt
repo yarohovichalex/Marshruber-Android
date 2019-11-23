@@ -47,9 +47,9 @@ class DriverStartRouteFragment(
                         routeId = "routeId",
                         name = "name"
                     ),
-                    driverName = normalStateBinding.editText.toString(),
-                    driverPhone = "driverPhone",
-                    driverCarNumber = "driverCarNumber"
+                    driverName = normalStateBinding.nameEditText.toString(),
+                    driverPhone = normalStateBinding.phoneNumberEditText.toString(),
+                    driverCarNumber = normalStateBinding.phoneNumberEditText.toString()
                 )
             }
         }
