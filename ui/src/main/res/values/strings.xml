@@ -5,7 +5,8 @@
     <string name="headerDriverMenu">Mеню водителя</string>
     <string name="headerListRoutes">Выберите маршрут</string>
     <string name="driverStatButton">Начать маршрут!</string>
-    <string name="hintName">Введите имя</string>
-    <string name="hintPhone">Введите номер телефона</string>
+    <string name="hintName">Имя</string>
+    <string name="hintPhone">Номер телефона</string>
+    <string name="hintCarNumber">Номер машины</string>
 
 </resources>
