@@ -8,9 +8,7 @@ import com.github.yarohovichalex.marshruber.android.common.MarshruberNetworkApi
 import com.github.yarohovichalex.marshruber.android.common.SchedulerSet
 import com.github.yarohovichalex.marshruber.android.common.navigations.DriverAppNavigationArgs
 import com.github.yarohovichalex.marshruber.android.navigation.driver.JetpackDriverAppNavigationArgs
-import com.github.yarohovichalex.marshruber.android.network.retrofit.MarshruberRestService
-import com.github.yarohovichalex.marshruber.android.network.retrofit.RetrofitBuilder
-import com.github.yarohovichalex.marshruber.android.network.retrofit.RetrofitMarshruberNetworkApi
+import com.github.yarohovichalex.marshruber.android.network.StubMarshruberNetworkApi
 
 class DriverModules(application: Application) {
 
@@ -19,12 +17,13 @@ class DriverModules(application: Application) {
     val schedulerSet: SchedulerSet by lazy { DefaultSchedulerSet() }
     val driverAppNavigationArgs: DriverAppNavigationArgs by lazy { JetpackDriverAppNavigationArgs() }
 
-    val marshruberRestService: MarshruberRestService by lazy { RetrofitBuilder.buildMarshruberRestService() }
-    val marshruberNetworkApi: MarshruberNetworkApi by lazy {
-        RetrofitMarshruberNetworkApi(
-            marshruberRestService = marshruberRestService
-        )
-    }
+//    val marshruberRestService: MarshruberRestService by lazy { RetrofitBuilder.buildMarshruberRestService() }
+//    val marshruberNetworkApi: MarshruberNetworkApi by lazy {
+//        RetrofitMarshruberNetworkApi(
+//            marshruberRestService = marshruberRestService
+//        )
+//    }
+    val marshruberNetworkApi: MarshruberNetworkApi by lazy { StubMarshruberNetworkApi() }
 
     val viewModelFactory: ViewModelProvider.Factory by lazy {
         DriverViewModelFactory(

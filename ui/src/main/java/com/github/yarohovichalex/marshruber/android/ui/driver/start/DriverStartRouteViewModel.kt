@@ -43,7 +43,6 @@ class DriverStartRouteViewModel(
     }
 
     fun driverStartRoute(
-        route: RouteData,
         driverName: String,
         driverPhone: String,
         driverCarNumber: String,
@@ -57,7 +56,7 @@ class DriverStartRouteViewModel(
                         name = driverName,
                         phone = driverPhone,
                         carNumber = driverCarNumber,
-                        route = route
+                        route = null
                     )
                 )
 

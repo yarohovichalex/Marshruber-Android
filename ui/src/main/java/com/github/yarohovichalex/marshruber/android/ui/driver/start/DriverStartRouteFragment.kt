@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.github.yarohovichalex.marshruber.android.common.data.RouteData
-import com.github.yarohovichalex.marshruber.android.ui.RouteSpinnerAdapter
+import com.github.yarohovichalex.marshruber.android.ui.R
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseFragment
 import com.github.yarohovichalex.marshruber.android.ui.databinding.FragmentDriverStartRouteBinding
 import com.github.yarohovichalex.marshruber.android.ui.databinding.LayoutDriverStartRouteNormalBinding
@@ -21,8 +20,6 @@ class DriverStartRouteFragment(
     private lateinit var fragmentBinding: FragmentDriverStartRouteBinding
     private lateinit var normalStateBinding: LayoutDriverStartRouteNormalBinding
     private lateinit var errorStateBinding: LayoutGenericErrorBinding
-
-    private val routeSpinnerAdapter by lazy { RouteSpinnerAdapter(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,19 +41,12 @@ class DriverStartRouteFragment(
             false
         ).also {
             normalStateBinding = it
-            normalStateBinding.spinner.adapter = routeSpinnerAdapter
             normalStateBinding.startButton.setOnClickListener {
-                val route: RouteData? = routeSpinnerAdapter.getItem(
-                    normalStateBinding.spinner.selectedItemPosition
+                presenter.driverStartRoute(
+                    driverName = normalStateBinding.nameInputEditText.text.toString(),
+                    driverPhone = normalStateBinding.phoneNumberInputEditText.toString(),
+                    driverCarNumber = normalStateBinding.carNumberInputEditText.toString()
                 )
-                route?.let {
-                    presenter.driverStartRoute(
-                        route = route,
-                        driverName = normalStateBinding.nameEditText.toString(),
-                        driverPhone = normalStateBinding.phoneNumberEditText.toString(),
-                        driverCarNumber = normalStateBinding.carNumberEditText.toString()
-                    )
-                }
             }
         }
 
@@ -73,7 +63,8 @@ class DriverStartRouteFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (requireActivity() as? AppCompatActivity)?.supportActionBar?.title = javaClass.simpleName
+        (requireActivity() as? AppCompatActivity)?.supportActionBar?.title =
+            getString(R.string.headerDriverMenu)
 
         presenter.requestData()
     }
@@ -102,10 +93,9 @@ class DriverStartRouteFragment(
 
         when (state) {
             is NormalDriverStartRouteState -> {
-                normalStateBinding.nameEditText.setText(state.driverName)
-                normalStateBinding.phoneNumberEditText.setText(state.driverPhone)
-                normalStateBinding.carNumberEditText.setText(state.driverCarNumber)
-                routeSpinnerAdapter.setData(state.routeList)
+                normalStateBinding.nameInputEditText.setText(state.driverName)
+                normalStateBinding.phoneNumberInputEditText.setText(state.driverPhone)
+                normalStateBinding.carNumberInputEditText.setText(state.driverCarNumber)
             }
 
             is ErrorDriverStartRouteState -> {
