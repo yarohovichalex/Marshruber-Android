@@ -44,6 +44,7 @@ class DrivingRouteFragment(
         ).also {
             normalStateBinding = it
             normalStateBinding.recyclerView.adapter = riderAdapter
+            normalStateBinding.finish.setOnClickListener {presenter.finishRoute()}
         }
 
         LayoutGenericErrorBinding.inflate(
