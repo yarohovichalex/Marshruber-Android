@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name_driver">Driver Marshruber</string>
+    <string name="app_name_rider">Rider Marshruber</string>
+    <string name="headerDriverMenu">Mеню водителя</string>
+    <string name="header_route_list">Маршруты</string>
+    <string name="header_rider_list">Пассажиры</string>
+    <string name="headerListRoutes">Выберите маршрут</string>
+    <string name="driverStatButton">Начать маршрут!</string>
+    <string name="driverFinishButton">Закончить маршрут!</string>
+    <string name="hintName">Имя</string>
+    <string name="hintPhone">Номер телефона</string>
+    <string name="hintCarNumber">Номер машины</string>
+
+</resources>
