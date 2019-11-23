@@ -24,6 +24,10 @@ class JetpackDriverAppNavigation(
             DriverStartRouteFragmentDirections.actionDriverStartToDrivingRoute(driver)
         )
 
+    override fun navigateToDriverRoute(driver: DriverData) {
+        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun navigateToDriverStartRoute() =
         navController.navigate(
             DrivingRouteFragmentDirections.actionDriverDrivingToStartRoute()

@@ -12,12 +12,12 @@
         android:background="#9EFFD2"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/finish"
+        app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/view_item_rider" />
+        tools:listitem="@layout/view_item_route" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/finish"
+        android:id="@+id/startButton"
         style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
