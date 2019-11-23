@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.github.yarohovichalex.marshruber.android.ui.RiderAdapter
 import com.github.yarohovichalex.marshruber.android.ui.common.BaseFragment
 import com.github.yarohovichalex.marshruber.android.ui.databinding.FragmentDrivingRouteBinding
 import com.github.yarohovichalex.marshruber.android.ui.databinding.LayoutDrivingRouteNormalBinding
@@ -19,6 +20,8 @@ class DrivingRouteFragment(
     private lateinit var fragmentBinding: FragmentDrivingRouteBinding
     private lateinit var normalStateBinding: LayoutDrivingRouteNormalBinding
     private lateinit var errorStateBinding: LayoutGenericErrorBinding
+
+    private val riderAdapter = RiderAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +43,7 @@ class DrivingRouteFragment(
             false
         ).also {
             normalStateBinding = it
+            normalStateBinding.recyclerView.adapter = riderAdapter
         }
 
         LayoutGenericErrorBinding.inflate(
@@ -84,6 +88,7 @@ class DrivingRouteFragment(
 
         when (state) {
             is NormalDrivingRouteState -> {
+                riderAdapter.submitList(state.riderList)
             }
 
             is ErrorDrivingRouteState -> {
