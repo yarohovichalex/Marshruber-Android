@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#009688"
-        android:text="Начать маршрут!"
+        android:text="@string/driverStatButton"
         android:textSize="15pt"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,65 +30,69 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintVertical_bias="0.526" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/phoneNumberEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
-        android:ems="10"
-        android:textSize="9pt"
-        android:inputType="phone"
         android:digits="1234567890"
-        android:hint="Номер телефона"
+        android:ems="10"
+        android:hint="@string/hintPhone"
+        android:inputType="phone"
         android:textColor="#000000"
+        android:textSize="9pt"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.779" />
 
     <EditText
         android:id="@+id/nameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/hintName"
         android:inputType="textPersonName"
-        android:hint="Ваше Имя"
-        android:textSize="9pt"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        android:textSize="9pt"
+        app:layout_constraintBottom_toTopOf="@+id/phoneNumberEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.856" />
+        app:layout_constraintVertical_bias="0.849" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/HeaderDriverMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Меню Водителя"
+        android:text="@string/headerDriverMenu"
+        android:textColor="#000000"
         android:textSize="20pt"
         android:textStyle="bold"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/headerRoutes"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/headerRoutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Выберите маршрут"
-        android:textSize="7pt"
+        android:text="@string/headerListRoutes"
         android:textColor="#000000"
+        android:textSize="7pt"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberEditText"
+        app:layout_constraintVertical_bias="0.68" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

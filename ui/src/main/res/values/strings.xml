@@ -2,5 +2,10 @@
 
     <string name="app_name_driver">Driver Marshruber</string>
     <string name="app_name_rider">Rider Marshruber</string>
+    <string name="headerDriverMenu">Mеню водителя</string>
+    <string name="headerListRoutes">Выберите маршрут</string>
+    <string name="driverStatButton">Начать маршрут!</string>
+    <string name="hintName">Введите имя</string>
+    <string name="hintPhone">Введите номер телефона</string>
 
 </resources>
